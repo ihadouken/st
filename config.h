@@ -46,7 +46,7 @@ static char *url_opener = "xdg-open";
  * 5: value of shell in config.h
  */
 static char *shell = "/bin/sh";
-char *utmp = "/usr/bin/zsh";
+char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
@@ -426,7 +426,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_o,           opencopied,      {.v = "xdg-open"} },
 	#endif // OPENCOPIED_PATCH
 	#if NEWTERM_PATCH
-	{ TERMMOD,              XK_Return,      newterm,         {.i =  0} },
+	{ Mod1Mask,             XK_n,           newterm,         {.i =  0} },
 	#endif // NEWTERM_PATCH
 	#if EXTERNALPIPE_PATCH
 	{ TERMMOD,              XK_U,           externalpipe,    { .v = openurlcmd } },
