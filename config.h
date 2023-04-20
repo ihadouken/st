@@ -408,8 +408,10 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
 	#endif // FULLSCREEN_PATCH
 	#if SCROLLBACK_PATCH
-	{ ShiftMask,            XK_Page_Up,     kscrollup,       {.i = -1}, S_PRI },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1}, S_PRI },
+	{ Mod1Mask,             XK_f,           kscrolldown,     {.i = -1}, S_PRI },
+	{ Mod1Mask,             XK_b,           kscrollup,       {.i = -1}, S_PRI },
+	{ Mod1Mask,             XK_j,           kscrolldown,     {.i = 1},  S_PRI },
+	{ Mod1Mask,             XK_k,           kscrollup,       {.i = 1},  S_PRI },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
