@@ -10,6 +10,7 @@ MANPREFIX = $(PREFIX)/share/man
 X11INC = /usr/X11R6/include
 X11LIB = /usr/X11R6/lib
 
+BINS = $(shell ls bin)
 PKG_CONFIG = pkg-config
 
 # Uncomment this for the alpha patch / ALPHA_PATCH
