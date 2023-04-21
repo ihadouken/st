@@ -369,10 +369,10 @@ static MouseShortcut mshortcuts[] = {
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
-#if EXTERNALPIPE_PATCH // example command
-static char *openurlcmd[] = { "/bin/sh", "-c",
-	"xurls | dmenu -l 10 -w $WINDOWID | xargs -r open",
-	"externalpipe", NULL };
+#if EXTERNALPIPE_PATCH
+static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -o", "externalpipe", NULL };
+static char *copyurlcmd[] = { "/bin/sh", "-c", "st-urlhandler -c", "externalpipe", NULL };
+static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
 
 #if EXTERNALPIPEIN_PATCH // example command
 static char *setbgcolorcmd[] = { "/bin/sh", "-c",
@@ -385,7 +385,7 @@ static Shortcut shortcuts[] = {
 	/* mask                 keysym          function         argument   screen */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,       {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,   {.i =  0} },
-	{ Mod1Mask,             XK_Print,       printscreen,     {.i =  0} },
+	{ MODKEY,               XK_Print,       printscreen,     {.i =  0} },
 	{ TERMMOD,              XK_Print,       printsel,        {.i =  0} },
 	{ TERMMOD,              XK_plus,        zoom,            {.f = +1} },
 	{ ControlMask,          XK_equal,       zoom,            {.f = +1} },
@@ -408,10 +408,10 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
 	#endif // FULLSCREEN_PATCH
 	#if SCROLLBACK_PATCH
-	{ Mod1Mask,             XK_f,           kscrolldown,     {.i = -1}, S_PRI },
-	{ Mod1Mask,             XK_b,           kscrollup,       {.i = -1}, S_PRI },
-	{ Mod1Mask,             XK_j,           kscrolldown,     {.i = 1},  S_PRI },
-	{ Mod1Mask,             XK_k,           kscrollup,       {.i = 1},  S_PRI },
+	{ MODKEY,               XK_f,           kscrolldown,     {.i = -1}, S_PRI },
+	{ MODKEY,               XK_b,           kscrollup,       {.i = -1}, S_PRI },
+	{ MODKEY,               XK_j,           kscrolldown,     {.i = 1},  S_PRI },
+	{ MODKEY,               XK_k,           kscrollup,       {.i = 1},  S_PRI },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
@@ -428,10 +428,12 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_o,           opencopied,      {.v = "xdg-open"} },
 	#endif // OPENCOPIED_PATCH
 	#if NEWTERM_PATCH
-	{ Mod1Mask,             XK_Return,       newterm,         {.i =  0} },
+	{ MODKEY,               XK_Return,      newterm,         {.i =  0} },
 	#endif // NEWTERM_PATCH
 	#if EXTERNALPIPE_PATCH
-	{ TERMMOD,              XK_U,           externalpipe,    { .v = openurlcmd } },
+	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
+	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
 	#if EXTERNALPIPEIN_PATCH
 	{ TERMMOD,              XK_M,           externalpipein,  { .v = setbgcolorcmd } },
 	#endif // EXTERNALPIPEIN_PATCH
