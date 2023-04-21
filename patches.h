@@ -43,13 +43,13 @@
  * transparency.
  * https://st.suckless.org/patches/background_image/
  */
-#define BACKGROUND_IMAGE_PATCH 0
+#define BACKGROUND_IMAGE_PATCH 1
 
 /* This patch adds the ability to reload the background image config when a SIGUSR1 signal is
  * received, e.g.: killall -USR1 st
  * Depends on the BACKGROUND_IMAGE_PATCH.
  */
-#define BACKGROUND_IMAGE_RELOAD_PATCH 0
+#define BACKGROUND_IMAGE_RELOAD_PATCH 1
 
 /* This patch allows the use of a blinking cursor.
  * Only cursor styles 0, 1, 3, 5, and 7 blink. Set cursorstyle accordingly.
