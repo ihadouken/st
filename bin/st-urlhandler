@@ -1,4 +1,5 @@
 #!/bin/sh
+menu="${MENU:-dmenu -i -p -l 10}"
 urlregex="(((http|https|gopher|gemini|ftp|ftps|git)://|www\\.)[a-zA-Z0-9.]*[:;a-zA-Z0-9./+@$&%?$\#=_~-]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)"
 
 urls="$(sed 's/.*│//g' | tr -d '\n' | # First remove linebreaks and mutt sidebars:
@@ -11,8 +12,8 @@ urls="$(sed 's/.*│//g' | tr -d '\n' | # First remove linebreaks and mutt sideb
 
 while getopts "hoc" o; do case "${o}" in
 	h) printf "Optional arguments for custom use:\\n  -c: copy\\n  -o: xdg-open\\n  -h: Show this message\\n" && exit 1 ;;
-	o) chosen="$(echo "$urls" | ${MENU:-dmenu -i -p -l 10} 'Follow which url?')"
+	o) chosen="$(echo "$urls" | $menu 'Follow which url?' -w $WINDOWID)"
 	setsid xdg-open "$chosen" >/dev/null 2>&1 & ;;
-	c) echo "$urls" | dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n' | xclip -selection clipboard ;;
+	c) echo "$urls" | $menu 'Copy which url?' -w $WINDOWID | tr -d '\n' | xclip -selection clipboard ;;
 	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
