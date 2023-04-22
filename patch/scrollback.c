@@ -3,8 +3,12 @@ kscrolldown(const Arg* a)
 {
 	int n = a->i;
 
-	if (n < 0)
-		n = term.row + n;
+	if (n < 0) {
+		if (n == -1)
+			n = term.row + n;
+		else if (n == -2)
+			n = (term.row)/2;
+	}
 
 	if (n > term.scr)
 		n = term.scr;
@@ -29,8 +33,13 @@ void
 kscrollup(const Arg* a)
 {
 	int n = a->i;
-	if (n < 0)
-		n = term.row + n;
+
+	if (n < 0) {
+		if (n == -1)
+			n = term.row + n;
+		else if (n == -2)
+			n = (term.row)/2;
+	}
 
 	if (term.scr + n > term.histn)
 		n = term.histn - term.scr;

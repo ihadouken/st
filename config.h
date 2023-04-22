@@ -410,6 +410,8 @@ static Shortcut shortcuts[] = {
 	#if SCROLLBACK_PATCH
 	{ MODKEY,               XK_f,           kscrolldown,     {.i = -1}, S_PRI },
 	{ MODKEY,               XK_b,           kscrollup,       {.i = -1}, S_PRI },
+	{ MODKEY,               XK_d,           kscrolldown,     {.i = -2}, S_PRI },
+	{ MODKEY,               XK_u,           kscrollup,       {.i = -2}, S_PRI },
 	{ MODKEY,               XK_j,           kscrolldown,     {.i = 1},  S_PRI },
 	{ MODKEY,               XK_k,           kscrollup,       {.i = 1},  S_PRI },
 	#endif // SCROLLBACK_PATCH
