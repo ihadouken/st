@@ -2,6 +2,10 @@
                      term.scr + HISTSIZE + 1) % HISTSIZE] : \
                      term.line[(y) - term.scr])
 
+#if EXTERNALPIPE_PATCH && EXTERNALPIPE_ETERNAL_PATCH
+#define TLINE_HIST(y)           ((y) <= HISTSIZE-term.row+2 ? term.hist[(y)] : term.line[(y-HISTSIZE+term.row-3)])
+#endif
+
 void kscrolldown(const Arg *);
 void kscrollup(const Arg *);
 

@@ -166,6 +166,15 @@
  */
 #define EXTERNALPIPEIN_PATCH 0
 
+/* When using the scrollback patch, you can use this patch ontop in order to use
+ * externalpipe onto the entire terminal history.
+ *
+ * This patch depends on EXTERNALPIPE_PATCH and SCROLLBACK_PATCH being enabled.
+ *
+ * https://st.suckless.org/patches/externalpipe/st-externalpipe-eternal-0.8.3.diff
+ */
+#define EXTERNALPIPE_ETERNAL_PATCH 1
+
 /* This patch allows command line applications to use all the fancy key combinations
  * that are available to GUI applications.
  * https://st.suckless.org/patches/fix_keyboard_input/

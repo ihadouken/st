@@ -566,6 +566,22 @@ void selnormalize(void) {
 }
 #endif // VIM_BROWSE_PATCH
 
+#if SCROLLBACK_PATCH && EXTERNALPIPE_PATCH && EXTERNALPIPE_ETERNAL_PATCH
+int
+tlinehistlen(int y)
+{
+	int i = term.col;
+
+	if (TLINE_HIST(y)[i - 1].mode & ATTR_WRAP)
+		return i;
+
+	while (i > 0 && TLINE_HIST(y)[i - 1].u == ' ')
+		--i;
+
+	return i;
+}
+#endif
+
 void
 selstart(int col, int row, int snap)
 {
