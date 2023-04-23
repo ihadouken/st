@@ -41,11 +41,11 @@ static char *url_opener = "xdg-open";
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
  * 2: scroll and/or utmp
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
+ * 3: value of shell in config.h
+ * 4: SHELL environment variable
+ * 5: value of shell in /etc/passwd
  */
-static char *shell = "/bin/sh";
+static char *shell = "/usr/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -450,7 +450,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_X,           invert,          { 0 } },
 	#endif // INVERT_PATCH
 	#if VIM_BROWSE_PATCH
-	{ MODKEY,               XK_c,           normalMode,      {.i =  0} },
+	{ MODKEY,               XK_Escape,      normalMode,      {.i =  0} },
 	#endif // VIM_BROWSE_PATCH
 };
 

@@ -941,7 +941,7 @@ execsh(char *cmd, char **args)
 			die("who are you?\n");
 	}
 
-	if ((sh = getenv("SHELL")) == NULL)
+	if (!cmd && (sh = getenv("SHELL")) == NULL)
 		sh = (pw->pw_shell[0]) ? pw->pw_shell : cmd;
 
 	if (args) {
@@ -952,6 +952,9 @@ execsh(char *cmd, char **args)
 		arg = utmp ? utmp : sh;
 	} else if (utmp) {
 		prog = utmp;
+		arg = NULL;
+	} else if (cmd) {
+		prog = cmd;
 		arg = NULL;
 	} else {
 		prog = sh;
