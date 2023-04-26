@@ -103,6 +103,10 @@
  */
 #define CSI_22_23_PATCH 0
 
+/* This patch adds support for custom colorschemes (dropped in colors directory).
+ * The colorschemes are just C header files that are included in config.h. */
+#define CUSTOM_COLORS_PATCH 0
+
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,
  * with 1 being the default.
@@ -165,6 +169,15 @@
  * https://lists.suckless.org/hackers/2004/17218.html
  */
 #define EXTERNALPIPEIN_PATCH 0
+
+/* When using the scrollback patch, you can use this patch ontop in order to use
+ * externalpipe onto the entire terminal history.
+ *
+ * This patch depends on EXTERNALPIPE_PATCH and SCROLLBACK_PATCH being enabled.
+ *
+ * https://st.suckless.org/patches/externalpipe/st-externalpipe-eternal-0.8.3.diff
+ */
+#define EXTERNALPIPE_ETERNAL_PATCH 0
 
 /* This patch allows command line applications to use all the fancy key combinations
  * that are available to GUI applications.

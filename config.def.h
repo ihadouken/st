@@ -42,9 +42,9 @@ static char *url_opener = "xdg-open";
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
  * 2: scroll and/or utmp
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
+ * 3: value of shell in config.h
+ * 4: SHELL environment variable
+ * 5: value of shell in /etc/passwd
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
@@ -161,6 +161,10 @@ float alphaUnfocused = 0.6;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 #endif // ALPHA_PATCH
 
+
+#if CUSTOM_COLORS_PATCH
+#include "colors/<colorscheme>.h"
+#else
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
@@ -191,6 +195,7 @@ static const char *colorname[] = {
 	"#000000", /* 258 -> bg */
 	"#e5e5e5", /* 259 -> fg */
 };
+#endif
 
 
 /*
