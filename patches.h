@@ -43,13 +43,13 @@
  * transparency.
  * https://st.suckless.org/patches/background_image/
  */
-#define BACKGROUND_IMAGE_PATCH 1
+#define BACKGROUND_IMAGE_PATCH 0
 
 /* This patch adds the ability to reload the background image config when a SIGUSR1 signal is
  * received, e.g.: killall -USR1 st
  * Depends on the BACKGROUND_IMAGE_PATCH.
  */
-#define BACKGROUND_IMAGE_RELOAD_PATCH 1
+#define BACKGROUND_IMAGE_RELOAD_PATCH 0
 
 /* This patch allows the use of a blinking cursor.
  * Only cursor styles 0, 1, 3, 5, and 7 blink. Set cursorstyle accordingly.
@@ -102,6 +102,10 @@
  * https://st.suckless.org/patches/csi_22_23/
  */
 #define CSI_22_23_PATCH 1
+
+/* This patch adds support for custom colorschemes (dropped in colors directory).
+ * The colorschemes are just C header files that are included in config.h. */
+#define CUSTOM_COLORS_PATCH 1
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,

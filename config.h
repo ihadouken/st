@@ -161,6 +161,9 @@ float alphaUnfocused = 0.6;
 #endif // ALPHA_PATCH
 
 /* Terminal colors (16 first used in escape sequence) */
+#if CUSTOM_COLORS_PATCH
+#include "colors/doom-one.h"
+#else
 static const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
@@ -191,11 +194,12 @@ static const char *colorname[] = {
 	"#e5e5e5", /* 259 -> fg */
 };
 
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
+#endif
+
 #if ALPHA_PATCH && ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultbg = 0;
 unsigned int bg = 17, bgUnfocused = 16;
