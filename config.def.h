@@ -42,9 +42,9 @@ static char *url_opener = "xdg-open";
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
  * 2: scroll and/or utmp
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
+ * 3: value of shell in config.h
+ * 4: SHELL environment variable
+ * 5: value of shell in /etc/passwd
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
