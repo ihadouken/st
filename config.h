@@ -441,7 +441,7 @@ static Shortcut shortcuts[] = {
 	#endif // EXTERNALPIPEIN_PATCH
 	#endif // EXTERNALPIPE_PATCH
 	#if KEYBOARDSELECT_PATCH
-	{ TERMMOD,              XK_Escape,      keyboard_select, { 0 } },
+	{ MODKEY,               XK_Escape,      keyboard_select, { 0 } },
 	#endif // KEYBOARDSELECT_PATCH
 	#if ISO14755_PATCH
 	{ TERMMOD,              XK_I,           iso14755,        {.i =  0} },
@@ -450,7 +450,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_X,           invert,          { 0 } },
 	#endif // INVERT_PATCH
 	#if VIM_BROWSE_PATCH
-	{ MODKEY,               XK_n,      normalMode,      {.i =  0} },
+	{ MODKEY,               XK_n,           normalMode,      {.i =  0} },
 	#endif // VIM_BROWSE_PATCH
 };
 
