@@ -163,6 +163,19 @@ float alphaUnfocused = 0.6;
 
 
 #if CUSTOM_COLORS_PATCH
+/*
+ * SELECT YOUR COLOR SCHEME
+ * Available themes are:
+ * 1. doom-one.h
+ * 2. dracula.h
+ * 3. gruvbox-dark.h
+ * 4. monokai-pro.h
+ * 5. nord.h
+ * 6. oceanic-next.h
+ * 7. solarized-dark.h
+ * 8. solarized-light.h
+ * 9. tomorrow-night.h
+ */
 #include "colors/<colorscheme>.h"
 #else
 /* Terminal colors (16 first used in escape sequence) */
