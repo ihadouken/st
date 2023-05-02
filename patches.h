@@ -104,7 +104,11 @@
 #define CSI_22_23_PATCH 1
 
 /* This patch adds support for custom colorschemes (dropped in colors directory).
- * The colorschemes are just C header files that are included in config.h. */
+ * The colorschemes are just C header files that are included in config.h.
+ *
+ * Note: The XRESOURCES_PATCH takes precedence over this patch i.e. the colors
+ * the XRDB overwrite the ones set by this patch.
+ */
 #define CUSTOM_COLORS_PATCH 1
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
