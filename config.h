@@ -425,8 +425,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
 	#endif // FULLSCREEN_PATCH
 	#if SCROLLBACK_PATCH
-	{ MODKEY,               XK_f,           kscrolldown,     {.i = -1}, S_PRI },
-	{ MODKEY,               XK_b,           kscrollup,       {.i = -1}, S_PRI },
+	// { MODKEY,               XK_f,           kscrolldown,     {.i = -1}, S_PRI },
+	// { MODKEY,               XK_b,           kscrollup,       {.i = -1}, S_PRI },
 	{ MODKEY,               XK_d,           kscrolldown,     {.i = -2}, S_PRI },
 	{ MODKEY,               XK_u,           kscrollup,       {.i = -2}, S_PRI },
 	{ MODKEY,               XK_j,           kscrolldown,     {.i = 1},  S_PRI },
