@@ -5,7 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrains Mono:pixelsize=15:style=Bold:antialias=true:autohint=true";
+
+// "pixelsize" and "size" are two different font things !!
+static char *font = "CascadiaMono:size=12:style=Bold:antialias=true:autohint=true";
+// static char *font = "JetBrains Mono:pixelsize=15:style=Bold:antialias=true:autohint=true";
+
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
